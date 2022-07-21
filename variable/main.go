@@ -3,25 +3,34 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 )
 
 const prompt = "and press ENTER when ready."
 
 func main() {
-	// one way - declare, then assign (two steps)
+	// seed the random number generator
+	rand.Seed(time.Now().UnixNano())
 
+	// one way - declare, then assign (two steps)
 	var firstNumber int
-	firstNumber = 9
+	firstNumber = rand.Intn(8) + 2
 
 	// another way, declare type and name and assign value
-	var secondNumber = 7
+	var secondNumber = rand.Intn(8) + 2
 
 	// one step variable: declare name, assign value and let GO figure out the type of variable
-	substraction := 4
+	substraction := rand.Intn(8) + 2
 
-	var answer int
+	var answer = firstNumber*secondNumber - substraction
 
+	PlayTheGames(firstNumber, secondNumber, substraction, answer)
+
+}
+
+func PlayTheGames(firstNumber int, secondNumber int, substraction int, answer int) {
 	reader := bufio.NewReader(os.Stdin)
 
 	// display a welcome/instructions
@@ -47,6 +56,6 @@ func main() {
 	reader.ReadString('\n')
 
 	// give them the answer
-	answer = firstNumber*secondNumber - substraction
 	fmt.Println("The Answer: ", answer)
+
 }
