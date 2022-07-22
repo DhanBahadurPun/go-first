@@ -1,3 +1,3 @@
-module myapp
+module challenge
 
 go 1.18

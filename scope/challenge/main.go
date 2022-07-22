@@ -1,7 +1,7 @@
 package main
 
 import (
-	"myapp/packagechallenge"
+	"challenge/packagechallenge"
 )
 
 var myVar = "Hi, I am from the main package level!"
